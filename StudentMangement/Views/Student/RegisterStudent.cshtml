@@ -1,0 +1,41 @@
+﻿@model StudentMangement.Models.StudentRequest
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<div class="container" style="width:60%">
+    <form class="row g-3" asp-action="RegisterStudent" asp-controller="Student" method="post" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <label for="inputFName" class="form-label">Primer Nombre</label>
+            <input type="text" asp-for="FirstName" class="form-control" id="inputFName">
+        </div>
+        <div class="col-md-6">
+            <label for="inputMName" class="form-label">Segundo Nombre</label>
+            <input type="text" asp-for="MiddleName" class="form-control" id="inputMName">
+        </div>
+        <div class="col-12">
+            <label for="inputLName" class="form-label">Apellidos</label>
+            <input type="text" asp-for="LastName" class="form-control" id="inputLName">
+        </div>
+
+        <div class="col-12">
+            <div class="col-5">
+                <label>Fecha de nacimiento</label>
+                @Html.TextBoxFor(model => model.Dirth, new { @class = "datefield form-control", type = "date" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <div class="col-5">
+                <label for="formFile" class="form-label">Subir Imagen de estudiante</label>
+                <input class="form-control" asp-for="ImageFile" type="file" id="formFile">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+
+</div>

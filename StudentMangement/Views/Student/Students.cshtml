@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Estudiantes";
+}
+
+<div class="container" style="width:90%">
+    <h1>Estudiantes lista</h1>
+    <p asp-action="RegisterStudent">Registrar estudiante</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Primer Nombre</th>
+                <th scope="col">Segundo Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Fecha de nacimiento</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach(var students in Model)
+            {
+                <tr>
+                    <th scope="row">@students.Id</th>
+                    <td>@students.FirstName</td>
+                    <td>@students.MiddleName</td>
+                    <td>@students.LastName</td>
+                    <td>@students.Dirth.ToString("d")</td>
+
+                    <td>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@students.Id">Eliminar</a>
+                    </td>
+                    <td>
+                        <a asp-action="EditStudent" class="btn btn-warning" asp-route-id="@students.Id">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
